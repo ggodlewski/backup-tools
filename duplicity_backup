@@ -1,0 +1,12 @@
+#!/bin/bash
+
+. ./config
+
+FULL=
+if [ $(date +%u) -eq 1 ]; then
+        FULL=full
+fi;
+
+PASSPHRASE="$PASSPHRASE" duplicity ${FULL} ${SOURCE} ${DEST}
+PASSPHRASE="$PASSPHRASE" duplicity --force remove-older-than ${OLDER_THAN} ${DEST}
+PASSPHRASE="$PASSPHRASE" duplicity --force cleanup ${DEST}
