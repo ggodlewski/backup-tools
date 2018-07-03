@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo Removing dumps older than 2 days
+
+find /backup -type f -mtime +2 -exec rm {} \;

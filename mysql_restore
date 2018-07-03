@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. ./config
+
+GZIP_FILE=$(ls $RESTORE/*_mysql_"$MYSQL_DB".sql.gz | sort | tail -1)
+
+echo Restoring: $GZIP_FILE
+
+cat $GZIP_FILE | gunzip | docker exec -i mysql mysql -u $MYSQL_USER -h $MYSQL_HOST -p$MYSQL_PASS $MYSQL_DB

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. ./config
+
+duplicity list-current-files ${DEST}

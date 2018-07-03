@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. ./config
+
+PASSPHRASE="$PASSPHRASE" duplicity verify -v4 ${DEST} ${SOURCE}

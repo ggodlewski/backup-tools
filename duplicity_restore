@@ -1,0 +1,7 @@
+#!/bin/bash
+
+. ./config
+
+rm -rf ${RESTORE}
+
+PASSPHRASE="$PASSPHRASE" duplicity ${DEST} ${RESTORE}

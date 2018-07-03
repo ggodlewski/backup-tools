@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. ./config
+
+if [ -z "$MYSQL_ROOT_PASS" ]
+then
+    read -s -p "MySQL Root Password: " MYSQL_ROOT_PASS
+fi
+
+docker exec mysql mysql -h "$MYSQL_HOST" -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL ON $MYSQL_DB.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASS'; FLUSH PRIVILEGES;"

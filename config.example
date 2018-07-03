@@ -1,0 +1,16 @@
+DEST=file://./dest
+#DEST="b2://account_id:app_key@bucket-name"
+
+PASSPHRASE="secret"
+
+OLDER_THAN="7D"
+HOST=`hostname`
+DATE=`date +%Y-%m-%d`
+
+SOURCE=./backup
+RESTORE=./restore
+
+MYSQL_HOST=mysql
+MYSQL_DB=dbname
+MYSQL_USER=username
+MYSQL_PASS=secret
