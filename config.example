@@ -14,3 +14,6 @@ MYSQL_HOST=mysql
 MYSQL_DB=dbname
 MYSQL_USER=username
 MYSQL_PASS=secret
+
+#MYSQL_DOCKER_IMAGE=mariadb
+#DOCKER_OPTS=--network mysql

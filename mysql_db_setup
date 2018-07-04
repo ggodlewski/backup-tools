@@ -2,9 +2,11 @@
 
 . ./config
 
+MYSQL_DOCKER_IMAGE=$MYSQL_DOCKER_IMAGE || 'mysql'
+
 if [ -z "$MYSQL_ROOT_PASS" ]
 then
     read -s -p "MySQL Root Password: " MYSQL_ROOT_PASS
 fi
 
-docker exec mysql mysql -h "$MYSQL_HOST" -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL ON $MYSQL_DB.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASS'; FLUSH PRIVILEGES;"
+docker exec $DOCKER_OPTS $MYSQL_DOCKER_IMAGE mysql -h "$MYSQL_HOST" -uroot -p$MYSQL_ROOT_PASS -e "GRANT ALL ON $MYSQL_DB.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASS'; FLUSH PRIVILEGES;"
