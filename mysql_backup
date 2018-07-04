@@ -4,6 +4,6 @@
 
 MYSQL_DOCKER_IMAGE=$MYSQL_DOCKER_IMAGE || 'mysql'
 
-docker exec $DOCKER_OPTS $MYSQL_DOCKER_IMAGE mysqldump --single-transaction --routines --triggers --add-drop-table --extended-insert \
+docker run $DOCKER_OPTS $MYSQL_DOCKER_IMAGE mysqldump --single-transaction --routines --triggers --add-drop-table --extended-insert \
     -u $MYSQL_USER -h $MYSQL_HOST -p$MYSQL_PASS $MYSQL_DB | \
     gzip -9 > "$SOURCE/"$(date +"%Y-%m-%d")"_mysql_"$MYSQL_DB".sql.gz"

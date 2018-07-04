@@ -7,4 +7,4 @@ GZIP_FILE=$(ls $RESTORE/*_mysql_"$MYSQL_DB".sql.gz | sort | tail -1)
 
 echo Restoring: $GZIP_FILE
 
-cat $GZIP_FILE | gunzip | docker exec $DOCKER_OPTS -i $MYSQL_DOCKER_IMAGE mysql -u $MYSQL_USER -h $MYSQL_HOST -p$MYSQL_PASS $MYSQL_DB
+cat $GZIP_FILE | gunzip | docker run $DOCKER_OPTS -i $MYSQL_DOCKER_IMAGE mysql -u $MYSQL_USER -h $MYSQL_HOST -p$MYSQL_PASS $MYSQL_DB
