@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. ./config
+
+PG_DOCKER_IMAGE=$PG_DOCKER_IMAGE || 'postgres'
+GZIP_FILE=$(ls $RESTORE/*_pgsql_"$MYSQL_DB".sql.gz | sort | tail -1)
+
+echo Restoring: $GZIP_FILE
+
+cat $GZIP_FILE | gunzip | docker run $DOCKER_OPTS -i $PG_DOCKER_IMAGE pg_restore -U $PG_USER --dbname=$PG_DB --host $PG_HOST -W $PG_PASS

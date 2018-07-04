@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. ./config
+
+PG_DOCKER_IMAGE=$PG_DOCKER_IMAGE || 'postgres'
+
+docker run $DOCKER_OPTS $PG_DOCKER_IMAGE pg_dump -U $PG_USER --dbname=$PG_DB --host $PG_HOST -W $PG_PASS | \
+    gzip -9 > "$SOURCE/"$(date +"%Y-%m-%d")"_pgsql_"$MYSQL_DB".sql.gz"

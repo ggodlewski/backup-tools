@@ -17,5 +17,6 @@ MYSQL_USER=username
 MYSQL_PASS=secret
 
 #MYSQL_DOCKER_IMAGE=mariadb
+#PG_DOCKER_IMAGE=postgres
 #DOCKER_OPTS=--network mysql
 
