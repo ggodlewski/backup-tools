@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. ./config
+
+rm -rf ${SOURCE}/snapshot
+cp -rf ${DIRS_TO_COPY} ${SOURCE}/snapshot

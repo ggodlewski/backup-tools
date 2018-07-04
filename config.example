@@ -1,3 +1,4 @@
+DIRS_TO_COPY=/some/dir
 DEST=file://./dest
 #DEST="b2://account_id:app_key@bucket-name"
 
@@ -17,3 +18,4 @@ MYSQL_PASS=secret
 
 #MYSQL_DOCKER_IMAGE=mariadb
 #DOCKER_OPTS=--network mysql
+
