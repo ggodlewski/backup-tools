@@ -1,7 +1,7 @@
 . ./config
 
 PG_DOCKER_IMAGE=$PG_DOCKER_IMAGE || 'postgres'
-GZIP_FILE=$(ls $RESTORE/*_pgsql_"$MYSQL_DB".sql.gz | sort | tail -1)
+GZIP_FILE=$(ls $RESTORE/*_pgsql_"$PG_DB".sql.gz | sort | tail -1)
 
 echo Restoring: $GZIP_FILE
 
